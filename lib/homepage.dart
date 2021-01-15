@@ -291,8 +291,8 @@ class _HomepageState extends State<Homepage> {
                     Container(
                       alignment: AlignmentDirectional.center,
                       width: size.width * 0.9,
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      height: 220,
+                      margin: EdgeInsets.fromLTRB(3, 10, 0, 0),
+                      height: 150,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
@@ -300,18 +300,19 @@ class _HomepageState extends State<Homepage> {
                               color: Colors.grey[100],
                               width: 10)),
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                        margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Row(
                           children: <Widget>[
                             Container(
                               height: 150,
                               width: size.width * 0.38,
                               child: Image(
-                                image: AssetImage('assets/image.png'),
+                                image: AssetImage('assets/image3.png'),
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              margin: EdgeInsets.fromLTRB(
+                                  size.width * 0.02, 5, 0, 15),
                               width: size.width * 0.4,
                               child: Column(
                                 children: <Widget>[
@@ -519,7 +520,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Container(
                       width: size.width * 0.7,
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      margin: EdgeInsets.fromLTRB(5, 10, 0, 0),
                       height: 160,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -651,7 +652,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Container(
                       width: size.width * 0.7,
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      margin: EdgeInsets.fromLTRB(5, 10, 0, 0),
                       height: 160,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),

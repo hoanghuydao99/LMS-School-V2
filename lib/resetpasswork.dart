@@ -1,4 +1,5 @@
 import 'package:apphh/Coler.dart';
+import 'package:apphh/dangnhap.dart';
 import 'package:apphh/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -570,7 +571,7 @@ class _updatethanhcongState extends State<updatethanhcong> {
   void dangnhaptc() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Homepage()),
+      MaterialPageRoute(builder: (context) => Dangnhap()),
     );
   }
 }

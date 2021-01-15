@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
   void openview() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => viewDangnhap()),
+      MaterialPageRoute(builder: (context) => viewdangnhap()),
     );
   }
 }
