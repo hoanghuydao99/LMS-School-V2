@@ -224,174 +224,200 @@ class _HomeState extends State<viewdangnhap> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [const Color(0xff3C8CE7), const Color(0xff00EAFF)])),
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          body: Container(
-            width: MediaQuery.of(context).size.width * 1,
-            height: MediaQuery.of(context).size.height * 1,
-            child: PageView(
-              controller: controller,
-              onPageChanged: (index) {
-                setState(() {
-                  slideIndex = index;
-                });
-              },
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    SlideTile(
-                      imagePath: mySLides[0].getImageAssetPath(),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Sử dụng tài khoản",
-                          style: TextStyle(
-                              height: 1.5,
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          " vnEdu Connect",
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w600),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(" để đăng")
-                      ],
-                    ),
-                    Text(
-                      "nhập nếu như bạn đã có từ trước",
-                      style: TextStyle(
-                          height: 1.5,
-                          fontSize: 13,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    SlideTile(
-                      imagePath: mySLides[1].getImageAssetPath(),
-                    ),
-                    const Text.rich(
-                      TextSpan(
-                        text:
-                            'Hoặc liên hệ với giáo viên phụ trách để được \n\t\t\t\t\t\t\t\t\t\t\t\t cấp',
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: ' tài khoản ',
-                              style: TextStyle(height: 1.5, color: Colors.red)),
-                          TextSpan(text: ' và '),
-                          TextSpan(
-                              text: ' mật khẩu',
-                              style: TextStyle(height: 1.5, color: Colors.red)),
-                        ],
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [const Color(0xff3C8CE7), const Color(0xff00EAFF)])),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Container(
+          width: MediaQuery.of(context).size.width * 1,
+          height: MediaQuery.of(context).size.height * 1,
+          child: PageView(
+            controller: controller,
+            onPageChanged: (index) {
+              setState(() {
+                slideIndex = index;
+              });
+            },
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  SlideTile(
+                    imagePath: mySLides[0].getImageAssetPath(),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Sử dụng tài khoản",
                         style: TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.w600),
+                            height: 1.5,
+                            fontSize: 13,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        " vnEdu Connect",
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                          " để đăng"
+                      )
+                    ],
+                  ),
+                  Text(
+                    "nhập nếu như bạn đã có từ trước",
+                    style: TextStyle(
+                        height: 1.5,
+                        fontSize: 13,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              Column(
+                children: <Widget>[
+                  SlideTile(
+                    imagePath: mySLides[1].getImageAssetPath(),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Hoặc liên hệ với giáo viên phụ trách để được",
+                        style: TextStyle(
+                            height: 1.5,
+                            fontSize: 13,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("để"),
+                      Text(
+                        " tài khoản",
+                        style: TextStyle(
+                            height: 1.5,
+                            fontSize: 13,
+                            color: red,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(" và "),
+                      Text(
+                        "mật khẩu",
+                        style: TextStyle(
+                            height: 1.5,
+                            fontSize: 13,
+                            color: red,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        bottomSheet: Container(
+          color: Colors.white,
+          child: Row(
+            children: <Widget>[
+              slideIndex != 1
+                  ? Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      margin: EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          FlatButton(
+                            onPressed: () {
+                              controller.animateToPage(2,
+                                  duration: Duration(milliseconds: 400),
+                                  curve: Curves.linear);
+                            },
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                side: BorderSide(color: Color(0xFFBB2634))),
+                            color: Color(0xFFBB2634),
+                            child: Text(
+                              "Tiếp tục",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                for (int i = 0; i < 2; i++)
+                                  i == slideIndex
+                                      ? _buildPageIndicator(true)
+                                      : _buildPageIndicator(false),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ))
+                  : Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      margin: EdgeInsets.all(10),
+                      child: Row(
+                        children: <Widget>[
+                          FlatButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Dangnhap()));
+                            },
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                side: BorderSide(color: Color(0xFFBB2634))),
+                            color: Color(0xFFBB2634),
+                            child: Text(
+                              "Đăng nhập",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(
+                                MediaQuery.of(context).size.width * 0.55,
+                                0,
+                                0,
+                                0),
+                            child: Row(
+                              children: [
+                                for (int i = 0; i < 2; i++)
+                                  i == slideIndex
+                                      ? _buildPageIndicator(true)
+                                      : _buildPageIndicator(false),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
+            ],
           ),
-          bottomSheet: Container(
-            color: Colors.white,
-            child: Row(
-              children: <Widget>[
-                slideIndex != 1
-                    ? Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        margin: EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            FlatButton(
-                              onPressed: () {
-                                controller.animateToPage(2,
-                                    duration: Duration(milliseconds: 400),
-                                    curve: Curves.linear);
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side: BorderSide(color: Color(0xFFBB2634))),
-                              color: Color(0xFFBB2634),
-                              child: Text(
-                                "Tiếp tục",
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Container(
-                              child: Row(
-                                children: [
-                                  for (int i = 0; i < 2; i++)
-                                    i == slideIndex
-                                        ? _buildPageIndicator(true)
-                                        : _buildPageIndicator(false),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ))
-                    : Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        margin: EdgeInsets.all(10),
-                        child: Row(
-                          children: <Widget>[
-                            FlatButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Dangnhap()));
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side: BorderSide(color: Color(0xFFBB2634))),
-                              color: Color(0xFFBB2634),
-                              child: Text(
-                                "Đăng nhập",
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.fromLTRB(
-                                  MediaQuery.of(context).size.width * 0.55,
-                                  0,
-                                  0,
-                                  0),
-                              child: Row(
-                                children: [
-                                  for (int i = 0; i < 2; i++)
-                                    i == slideIndex
-                                        ? _buildPageIndicator(true)
-                                        : _buildPageIndicator(false),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),),
-              ],
-            ),
-          ),
-        ),);
+        ),
+      ),
+    );
   }
 }
 
